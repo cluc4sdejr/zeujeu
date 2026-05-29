@@ -1,0 +1,21 @@
+@font-face {
+    font-family: "Gameless Sans";
+    src: url("/fonts/gameless-sans.otf");
+}
+
+html, body {
+    margin: 0;
+}
+
+.app {
+    font-size: 4em;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(110, 0, 0);
+}
+
+h1 {
+    color: white;
+    font-family: "Gameless Sans", monospace;
+    text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
+}
