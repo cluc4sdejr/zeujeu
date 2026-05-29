@@ -19,5 +19,6 @@ html, body {
 h1 {
     color: white;
     font-family: "Gameless Sans";
+    font-weight: 100;
     text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
 }
