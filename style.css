@@ -10,7 +10,6 @@ html, body {
 }
 
 .app {
-    font-size: 2em;
     width: 100vw;
     height: 100%;
     background: rgb(0, 0, 0);
@@ -21,6 +20,8 @@ html, body {
     color: white;
     font-family: "Gameless Sans";
     font-weight: 100;
-    text-shadow: 6px 6px 0px rgba(255, 255, 255, 0.3);
+    text-shadow: 3px 3px 0px rgba(255, 255, 255, 0.3);
     margin: 0;
+    font-size: 1em;
+    z-index: 2;
 }
