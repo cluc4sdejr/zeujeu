@@ -17,6 +17,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .text {
@@ -27,15 +28,4 @@ html, body {
     margin: 0;
     font-size: 2em;
     z-index: 2;
-}
-
-@keyframes appearFade {
-    0% {
-        display: none;
-        opacity: 0;
-    }
-    100% {
-        display: flex;
-        opacity: 1;
-    }
 }
