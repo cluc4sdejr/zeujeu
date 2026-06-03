@@ -6,19 +6,21 @@
 html, body {
     margin: 0;
     overflow: hidden;
+    height: 100%;
 }
 
 .app {
     font-size: 2em;
     width: 100vw;
-    height: 100vh;
-    background: rgb(110, 0, 0);
+    height: 100%;
+    background: rgb(0, 0, 0);
     margin: 0;
 }
 
-h1 {
+.text {
     color: white;
     font-family: "Gameless Sans";
     font-weight: 100;
-    text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
+    text-shadow: 6px 6px 0px rgba(255, 255, 255, 0.3);
+    margin: 0;
 }
