@@ -20,6 +20,10 @@ html, body {
     text-align: center;
 }
 
+.warning-text {
+    width: 300px;
+}
+
 .text {
     color: white;
     font-family: "Gameless Sans";
