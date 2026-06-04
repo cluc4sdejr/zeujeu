@@ -9,6 +9,13 @@
     <img class="tape-left" src="assets/tapes.gif">
     <img class="tape-right" src="assets/tapes.gif">
 
+    <div class="start-screen" id="start-screen">
+      <div class="start-screen-content">
+        <div class="start-screen-title">Lancer</div>
+        <button id="start-button">Lancer</button>
+      </div>
+    </div>
+
     <div class="app">
       <div class="subtitles-container">
         <span class="text game-subtitle"></span>
@@ -35,14 +42,56 @@
       }
     };
 
+    const dialogAudioMap = {
+      "dialog.001": "sfx/voices/Game_dialog.001.wav",
+      "dialog.002": "sfx/voices/Game_dialog.002.wav"
+    };
+
+    const dialogAudios = {};
     const userLang = navigator.language || navigator.userLanguage;
     const lang = userLang.startsWith("fr") ? "fr" : "en";
     const data = translations[lang];
 
-    $(".warning-text").html(data["menu.warningText"]).fadeIn(1000);
+    const preloadDialogAudio = () => {
+      Object.entries(dialogAudioMap).forEach(([key, src]) => {
+        const audio = new Audio(src);
+        audio.preload = "auto";
+        audio.load();
+        dialogAudios[key] = audio;
+      });
+    };
 
-    setTimeout(() => {
-      $(".app").addClass("shake-effect");
+    const unlockAudio = () => {
+      Object.values(dialogAudios).forEach(audio => {
+        audio.currentTime = 0;
+        audio.play().then(() => {
+          audio.pause();
+          audio.currentTime = 0;
+        }).catch(() => {
+          // Ignore autoplay errors.
+        });
+      });
+    };
+
+    const playDialogAudio = (dialogKey) => {
+      const audio = dialogAudios[dialogKey];
+      if (!audio) return;
+      audio.currentTime = 0;
+      audio.play().catch(() => {
+        // Ignore playback failures.
+      });
+    };
+
+    const showDialog = (dialogKey) => {
+      $(".game-subtitle").html(data[dialogKey]).show();
+      playDialogAudio(dialogKey);
+    };
+
+    const runSequence = () => {
+      $(".warning-text").html(data["menu.warningText"]).fadeIn(1000);
+
+      setTimeout(() => {
+        $(".app").addClass("shake-effect");
       $(".game-subtitle").html(data["dialog.001"]).show();
       setTimeout(() => {
         $(".app").removeClass("shake-effect");
@@ -80,5 +129,17 @@
         }, 200);
       });
     }, 6500);
+    };
+
+    $(document).ready(() => {
+      $("#start-button").on("click", () => {
+        preloadDialogAudio();
+        unlockAudio();
+        $("#start-screen").fadeOut(250, function() {
+          $(this).remove();
+          runSequence();
+        });
+      });
+    });
   </script>
 </html>
