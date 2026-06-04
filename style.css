@@ -7,8 +7,7 @@ html, body {
     margin: 0;
     overflow: hidden;
     height: 100%;
-    background: rgb(0, 0, 0);
-    cursor: url("assets/cur/unavailable.png");
+    background: rgb(0, 0, 0);;
 }
 
 .app {
@@ -22,6 +21,7 @@ html, body {
     align-items: center;
     text-align: center;
     position: relative;
+    cursor: url("assets/cur/unavailable.png")
 }
 
 .warning-text {
