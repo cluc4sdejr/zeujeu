@@ -51,6 +51,16 @@ html, body {
     z-index: 2;
 }
 
+.save-icon {
+    animation: swing-icon 2s ease-in-out infinite;
+}
+
+@keyframes swing-icon {
+    0% { transform: rotate(-15deg); }
+    50% { transform: rotate(15deg); }
+    100% { transform: rotate(-15deg); }
+}
+
 .shake-effect {
     animation: fast-shake 0.15s infinite;
 }
