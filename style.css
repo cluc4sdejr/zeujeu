@@ -53,7 +53,7 @@ html, body {
 
 .save-icon {
     display: inline-block;
-    width: 50px; 
+    width: 60px; 
     text-align: center;
     animation: jump-swing 1s linear infinite;
 }
