@@ -37,11 +37,11 @@ html, body {
 }
 
 .game-subtitle {
-    max-width: 900px;
+    max-width: 100%;
 }
 
 .text {
-    font-size: 2em;
+    font-size: 1.8em;
     color: white;
     font-family: "Gameless Sans", sans-serif;
     font-weight: 100;
