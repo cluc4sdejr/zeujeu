@@ -17,11 +17,13 @@
     const translations = {
       "en": {
         "menu.warningText": "WARNING: This game is unofficial and was made by fans.<br><br>All original rights to images and names belong strictly to Draw Me A Pixel.",
-        "dialog.001": "A game, but..?!"
+        "dialog.001": "A game, but..?!",
+        "dialog.002": "THIS IS NOT A GAME!"
       },
       "fr": {
         "menu.warningText": "ATTENTION : Ce jeu n'est pas officiel et a été réalisé par des fans.<br><br>Tous droits originaux de l'image, nom et autres sont strictement réservés à Draw Me A Pixel",
-        "dialog.001": "Un jeu, mais..?!"
+        "dialog.001": "Un jeu, mais..?!",
+        "dialog.002": "CE N'EST PAS UN JEU!"
       }
     };
 
@@ -42,8 +44,18 @@
     }, 2500);
 
     setTimeout(() => {
-      $(".warning-text").fadeOut(1000);
-      $(".game-subtitle").hide();
+      $(".warning-text").fadeOut(1000, () => {
+        $(".game-subtitle").hide();
+
+        setTimeout(() => {
+          $(".app").addClass("shake-effect");
+
+          setTimeout(() => {
+            $(".app").removeClass("shake-effect");
+            $(".game-subtitle").html(data["dialog.002"]).show();
+          }, 150);
+        }, 200);
+      });
     }, 6500);
   </script>
 </html>
