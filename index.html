@@ -7,13 +7,35 @@
   </head>
   <body>
     <div class="app">
-      <span class="text warning-text">ATTENTION : Ce jeu n'est pas officiel et a été réalisé par des fans.<br><br>Tous droits originaux de l'image, nom et autres sont strictement réservés à Draw Me A Pixel</span>
+      <span class="text warning-text"></span>
     </div>
   </body>
   <script>
-    $(".warning-text").fadeIn(1000);
-    setTimeout(() => {
-      $(".warning-text").fadeOut(1000);
-    }, 5000);
+    const userLang = navigator.language || navigator.userLanguage;
+    let langFile = "lang/en_us.json";
+
+    if (userLang.startsWith("fr")) {
+      langFile = "lang/fr_fr.json";
+    }
+
+    fetch(langFile)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Impossible de charger le fichier de langue");
+        }
+        return response.json();
+      })
+      .then(data => {
+        $(".warning-text").html(data["menu.warningText"]);
+        $(".warning-text").fadeIn(1000);
+        setTimeout(() => {
+          $(".warning-text").fadeOut(1000);
+        }, 5000);
+      })
+      .catch(error => {
+        console.error("Erreur de traduction:", error);
+        $(".warning-text").html("WARNING: Error loading language file.");
+        $(".warning-text").fadeIn(1000);
+      });
   </script>
 </html>
