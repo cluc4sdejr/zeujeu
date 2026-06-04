@@ -8,6 +8,10 @@
   <body>
     <div class="app">
       <span class="text warning-text"></span>
+      
+      <div class="subtitles-container">
+        <span class="text game-subtitle"></span>
+      </div>
     </div>
   </body>
   <script>
@@ -19,23 +23,27 @@
     }
 
     fetch(langFile)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Impossible de charger le fichier de langue");
-        }
-        return response.json();
-      })
       .then(data => {
-        $(".warning-text").html(data["menu.warningText"]);
-        $(".warning-text").fadeIn(1000);
+        $(".warning-text").html(data["menu.warningText"]).fadeIn(1000);
+        setTimeout(() => {
+          $(".game-subtitle").html(data["dialog.001"]).show();
+          setTimeout(() => {
+            $(".app").addClass("shake-effect");
+            setTimeout(() => {
+              $(".app").removeClass("shake-effect");
+            }, 150);
+
+          }, 50);
+
+        }, 2500);
         setTimeout(() => {
           $(".warning-text").fadeOut(1000);
-        }, 5000);
+          $(".game-subtitle").hide();
+        }, 6500);
       })
       .catch(error => {
         console.error("Erreur de traduction:", error);
-        $(".warning-text").html("WARNING: Error loading language file.");
-        $(".warning-text").fadeIn(1000);
+        $(".warning-text").html("WARNING: Error loading language file.").fadeIn(1000);
       });
   </script>
 </html>

@@ -7,6 +7,7 @@ html, body {
     margin: 0;
     overflow: hidden;
     height: 100%;
+    background: rgb(0, 0, 0);
 }
 
 .app {
@@ -15,22 +16,57 @@ html, body {
     background: rgb(0, 0, 0);
     margin: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative;
 }
 
 .warning-text {
     width: 800px;
+    margin-bottom: 40px;
+}
+
+.subtitles-container {
+    position: absolute;
+    bottom: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.game-subtitle {
+    color: #ffffff;
+    font-size: 2.5em;
+    max-width: 900px;
 }
 
 .text {
     color: white;
     font-family: "Gameless Sans";
     font-weight: 100;
-    text-shadow: 3px 3px 0px rgba(255, 255, 255, 0.37);
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.7);
     margin: 0;
     display: none;
     font-size: 2em;
     z-index: 2;
+}
+
+.shake-effect {
+    animation: fast-shake 0.15s infinite;
+}
+
+@keyframes fast-shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-2px, -1px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(0px, 2px) rotate(0deg); }
+    40% { transform: translate(2px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(2px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(2px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
