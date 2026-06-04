@@ -86,13 +86,26 @@ html, body {
     width: auto;
     z-index: 9999;
     pointer-events: none;
+    animation: slide-in 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 .tape-left {
     left: 0;
+    --slide-start: translateX(-100%);
+    --slide-end: translateX(0);
 }
 
 .tape-right {
     right: 0;
-    transform: scaleX(-1);
+    --slide-start: translateX(100%) scaleX(-1);
+    --slide-end: translateX(0) scaleX(-1);
+}
+
+@keyframes slide-in {
+    from {
+        transform: var(--slide-start);
+    }
+    to {
+        transform: var(--slide-end);
+    }
 }
