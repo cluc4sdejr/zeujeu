@@ -107,7 +107,7 @@ html, body {
     z-index: 9999;
     pointer-events: none;
     animation: slide-in 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    display: block;
+    display: none;
 }
 
 .start-screen {
