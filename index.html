@@ -7,10 +7,10 @@
   </head>
   <body>
     <div class="app">
-      <span class="text warning-text"></span>
       <div class="subtitles-container">
         <span class="text game-subtitle"></span>
       </div>
+      <span class="text warning-text"></span>
     </div>
   </body>
   <script>
@@ -32,16 +32,12 @@
     $(".warning-text").html(data["menu.warningText"]).fadeIn(1000);
 
     setTimeout(() => {
-      $(".game-subtitle").html(data["dialog.001"]).show();
+      $(".app").addClass("shake-effect");
 
       setTimeout(() => {
-        $(".app").addClass("shake-effect");
-        
-        setTimeout(() => {
-          $(".app").removeClass("shake-effect");
-        }, 150);
-
-      }, 50);
+        $(".app").removeClass("shake-effect");
+        $(".game-subtitle").html(data["dialog.001"]).show();
+      }, 150);
 
     }, 2500);
 

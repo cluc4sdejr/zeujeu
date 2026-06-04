@@ -8,6 +8,7 @@ html, body {
     overflow: hidden;
     height: 100%;
     background: rgb(0, 0, 0);
+    cursor: url("assets/cur/unavailable.png");
 }
 
 .app {
@@ -30,7 +31,7 @@ html, body {
 
 .subtitles-container {
     position: absolute;
-    bottom: 15%;
+    top: 12%;
     width: 100%;
     display: flex;
     justify-content: center;
