@@ -52,6 +52,9 @@
             $(".app").removeClass("shake-effect");
             $(".app").addClass("shake-effect");
             $(".game-subtitle").html(data["dialog.002"]).show();
+            setTimeout(() => {
+              $(".app").removeClass("shake-effect");
+            }, 500);
           }, 150);
         }, 200);
       });
