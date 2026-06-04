@@ -52,24 +52,32 @@ html, body {
 }
 
 .save-icon {
-    animation: jump-swing 1.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
     display: inline-block;
+    animation: jump-swing 1s ease-in-out infinite;
 }
 
 @keyframes jump-swing {
-    0%, 100% { 
+    0% { 
         transform-origin: bottom left;
         transform: rotate(-25deg) translateY(0); 
     }
     25% { 
-        transform: rotate(0deg) translateY(-30px); 
+        /* On décolle rapidement */
+        transform: rotate(0deg) translateY(-20px); 
     }
     50% { 
+        /* On change de pied immédiatement en haut */
         transform-origin: bottom right;
         transform: rotate(25deg) translateY(0); 
     }
     75% { 
-        transform: rotate(0deg) translateY(-30px); 
+        /* On revient au centre rapidement */
+        transform: rotate(0deg) translateY(-20px); 
+    }
+    100% { 
+        /* On boucle sur le premier état */
+        transform-origin: bottom left;
+        transform: rotate(-25deg) translateY(0); 
     }
 }
 
