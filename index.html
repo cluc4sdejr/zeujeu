@@ -6,15 +6,15 @@
     <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <img class="tape-left" src="assets/tapes.gif">
-    <img class="tape-right" src="assets/tapes.gif">
+    <img class="tape-left" src="tapes.gif">
+    <img class="tape-right" src="tapes.gif">
 
     <div class="app">
       <div class="subtitles-container">
         <span class="text game-subtitle"></span>
       </div>
       <span class="text warning-text"></span>
-      <img class="save-icon" src="assets/saving.gif" style="display: none; margin: 60px auto 0 auto;">
+      <img class="save-icon" src="saving.gif" style="display: none; margin: 20px auto 0 auto;">
     </div>
   </body>
   <script>
@@ -52,7 +52,6 @@
     setTimeout(() => {
       $(".warning-text").fadeOut(1000, () => {
         $(".game-subtitle").hide();
-
         setTimeout(() => {
           $(".app").addClass("shake-effect");
           setTimeout(() => {
@@ -63,13 +62,18 @@
               $(".app").removeClass("shake-effect");
               setTimeout(() => {
                 $(".game-subtitle").hide();
-                
                 setTimeout(() => {
                   $(".game-subtitle").html(data["dialog.003"]).show();
                   $(".warning-text").html(data["menu.saveWarningText"]).fadeIn(1000);
                   $(".save-icon").fadeIn(1000);
+                  setTimeout(() => {
+                    $(".game-subtitle").hide();
+                    $(".warning-text").fadeOut(1000);
+                    $(".save-icon").fadeOut(1000);
+                    $(".tape-left").addClass("slide-out-left");
+                    $(".tape-right").addClass("slide-out-right");
+                  }, 4000);
                 }, 1000);
-
               }, 1500);
             }, 500);
           }, 150);

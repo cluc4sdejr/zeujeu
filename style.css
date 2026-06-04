@@ -101,11 +101,24 @@ html, body {
     --slide-end: translateX(0) scaleX(-1);
 }
 
+.slide-out-left {
+    animation: slide-out 0.8s cubic-bezier(0.5, 0, 0.75, 0) forwards;
+    --slide-out-start: translateX(0);
+    --slide-out-end: translateX(-100%);
+}
+
+.slide-out-right {
+    animation: slide-out 0.8s cubic-bezier(0.5, 0, 0.75, 0) forwards;
+    --slide-out-start: translateX(0) scaleX(-1);
+    --slide-out-end: translateX(100%) scaleX(-1);
+}
+
 @keyframes slide-in {
-    from {
-        transform: var(--slide-start);
-    }
-    to {
-        transform: var(--slide-end);
-    }
+    from { transform: var(--slide-start); }
+    to { transform: var(--slide-end); }
+}
+
+@keyframes slide-out {
+    from { transform: var(--slide-out-start); }
+    to { transform: var(--slide-out-end); }
 }
