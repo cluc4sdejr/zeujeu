@@ -56,9 +56,9 @@ html, body {
 }
 
 @keyframes swing-icon {
-    0% { transform: rotate(-15deg), translateY(10px); }
+    0% { transform: rotate(-25deg), translateY(10px); }
     50% { transform: rotate(15deg); }
-    100% { transform: rotate(-15deg), translateY(10px); }
+    100% { transform: rotate(-25deg), translateY(10px); }
 }
 
 .shake-effect {
