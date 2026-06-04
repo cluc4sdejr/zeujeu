@@ -53,7 +53,9 @@ html, body {
 
 .save-icon {
     display: inline-block;
-    animation: jump-swing 1s ease-in-out infinite;
+    width: 50px; 
+    text-align: center;
+    animation: jump-swing 1s linear infinite;
 }
 
 @keyframes jump-swing {
@@ -62,20 +64,18 @@ html, body {
         transform: rotate(-25deg) translateY(0); 
     }
     25% { 
-        /* On décolle rapidement */
+        transform-origin: bottom left;
         transform: rotate(0deg) translateY(-20px); 
     }
     50% { 
-        /* On change de pied immédiatement en haut */
         transform-origin: bottom right;
         transform: rotate(25deg) translateY(0); 
     }
     75% { 
-        /* On revient au centre rapidement */
+        transform-origin: bottom right;
         transform: rotate(0deg) translateY(-20px); 
     }
     100% { 
-        /* On boucle sur le premier état */
         transform-origin: bottom left;
         transform: rotate(-25deg) translateY(0); 
     }
