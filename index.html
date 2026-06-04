@@ -35,11 +35,10 @@
 
     setTimeout(() => {
       $(".app").addClass("shake-effect");
-
+      $(".game-subtitle").html(data["dialog.001"]).show();
       setTimeout(() => {
         $(".app").removeClass("shake-effect");
-        $(".game-subtitle").html(data["dialog.001"]).show();
-      }, 150);
+      }, 300);
 
     }, 2500);
 
