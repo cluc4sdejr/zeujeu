@@ -8,42 +8,46 @@
   <body>
     <div class="app">
       <span class="text warning-text"></span>
-      
       <div class="subtitles-container">
         <span class="text game-subtitle"></span>
       </div>
     </div>
   </body>
   <script>
+    const translations = {
+      "en": {
+        "menu.warningText": "WARNING: This game is unofficial and was made by fans.<br><br>All original rights to images and names belong strictly to Draw Me A Pixel.",
+        "dialog.001": "A game, but..?!"
+      },
+      "fr": {
+        "menu.warningText": "ATTENTION : Ce jeu n'est pas officiel et a été réalisé par des fans.<br><br>Tous droits originaux de l'image, nom et autres sont strictement réservés à Draw Me A Pixel",
+        "dialog.001": "Un jeu, mais..?!"
+      }
+    };
+
     const userLang = navigator.language || navigator.userLanguage;
-    let langFile = "lang/en_us.json";
+    const lang = userLang.startsWith("fr") ? "fr" : "en";
+    const data = translations[lang];
 
-    if (userLang.startsWith("fr")) {
-      langFile = "lang/fr_fr.json";
-    }
+    $(".warning-text").html(data["menu.warningText"]).fadeIn(1000);
 
-    fetch(langFile)
-      .then(data => {
-        $(".warning-text").html(data["menu.warningText"]).fadeIn(1000);
+    setTimeout(() => {
+      $(".game-subtitle").html(data["dialog.001"]).show();
+
+      setTimeout(() => {
+        $(".app").addClass("shake-effect");
+        
         setTimeout(() => {
-          $(".game-subtitle").html(data["dialog.001"]).show();
-          setTimeout(() => {
-            $(".app").addClass("shake-effect");
-            setTimeout(() => {
-              $(".app").removeClass("shake-effect");
-            }, 150);
+          $(".app").removeClass("shake-effect");
+        }, 150);
 
-          }, 50);
+      }, 50);
 
-        }, 2500);
-        setTimeout(() => {
-          $(".warning-text").fadeOut(1000);
-          $(".game-subtitle").hide();
-        }, 6500);
-      })
-      .catch(error => {
-        console.error("Erreur de traduction:", error);
-        $(".warning-text").html("WARNING: Error loading language file.").fadeIn(1000);
-      });
+    }, 2500);
+
+    setTimeout(() => {
+      $(".warning-text").fadeOut(1000);
+      $(".game-subtitle").hide();
+    }, 6500);
   </script>
 </html>
