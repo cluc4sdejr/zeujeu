@@ -26,7 +26,6 @@ html, body {
 
 .warning-text {
     width: 800px;
-    font-size: 2em;
 }
 
 .subtitles-container {
@@ -38,11 +37,11 @@ html, body {
 }
 
 .game-subtitle {
-    font-size: 1.5em;
     max-width: 900px;
 }
 
 .text {
+    font-size: 2em;
     color: white;
     font-family: "Gameless Sans", sans-serif;
     font-weight: 100;
