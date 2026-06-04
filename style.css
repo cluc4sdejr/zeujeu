@@ -68,3 +68,21 @@ html, body {
     90% { transform: translate(3px, 3px) rotate(0deg); }
     100% { transform: translate(2px, -3px) rotate(-1deg); }
 }
+
+.tape-left, .tape-right {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: auto;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.tape-left {
+    left: 0;
+}
+
+.tape-right {
+    right: 0;
+    transform: scaleX(-1);
+}
