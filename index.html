@@ -90,24 +90,18 @@
       $(".warning-text").html(data["menu.warningText"]).fadeIn(1000);
 
       setTimeout(() => {
-        $(".app").addClass("shake-effect");
         showDialog("dialog.001");
-        setTimeout(() => {
-          $(".app").removeClass("shake-effect");
-        }, 300);
       }, 2500);
 
       setTimeout(() => {
         $(".warning-text").fadeOut(1000, () => {
           $(".game-subtitle").hide();
           setTimeout(() => {
-            $(".app").addClass("shake-effect");
             setTimeout(() => {
-              $(".app").removeClass("shake-effect");
-              $(".app").addClass("shake-effect");
+              $(".tape-left").show();
+              $(".tape-right").show();
               showDialog("dialog.002");
               setTimeout(() => {
-                $(".app").removeClass("shake-effect");
                 setTimeout(() => {
                   $(".game-subtitle").hide();
                   setTimeout(() => {
@@ -118,8 +112,6 @@
                       $(".game-subtitle").hide();
                       $(".warning-text").fadeOut(1000);
                       $(".save-icon").fadeOut(1000);
-                      $(".tape-left").addClass("slide-out-left");
-                      $(".tape-right").addClass("slide-out-right");
                     }, 4000);
                   }, 1000);
                 }, 1500);
